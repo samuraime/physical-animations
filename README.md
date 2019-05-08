@@ -1,6 +1,8 @@
 # Physical Animations
 
-This project was bootstrapped with [Create React App](./CREATE_REACT_APP)
+这是一个基础物理动画Session的Repo.  
+
+This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ## Content
 
