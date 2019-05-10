@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import Home from './pages/Home';
-import Easing from './pages/Easing';
-import VectorDemo from './pages/Vector';
+import Easing from './pages/easing';
+import VectorDemo from './pages/vector';
 // import s from './App.module.css';
 
 const routes = [

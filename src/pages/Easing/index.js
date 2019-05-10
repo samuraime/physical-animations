@@ -1,3 +1,1 @@
-import Easing from './Easing';
-
-export default Easing;
+export { default } from './Easing';

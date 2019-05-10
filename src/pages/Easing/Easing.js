@@ -1,10 +1,10 @@
-import React, { memo, useRef } from 'react';
+import React, { memo } from 'react';
 import s from './Easing.module.css';
 
 // window.scrollTo({ top: 0, behavior: 'smooth' });
 function easing(source, target) {
   const delta = target - source;
-  const next = source + delta * 0.01;
+  const next = source + delta * 0.05;
   if (Math.abs(next - target) < 1) {
     return;
   }
@@ -15,22 +15,18 @@ function easing(source, target) {
   });
 }
 
-function Easing(props) {
-  const domRef = useRef(null);
-
+function Easing() {
   const handleUp = () => {
-    const { scrollTop } = domRef.current;
-    easing(scrollTop, 0);
+    easing(window.scrollY, 0);
   };
 
   const handleDown = () => {
-    const { scrollHeight, clientHeight } = domRef.current;
-
-    easing(clientHeight - scrollHeight, clientHeight);
+    const target = document.body.clientHeight - window.innerHeight;
+    easing(window.scrollY, target);
   };
 
   return (
-    <div ref={domRef} {...props}>
+    <div>
       {Array.from({ length: 100 }, (_, index) => (
         <div key={index} className={s.item}>
           {index}
