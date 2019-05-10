@@ -1,0 +1,19 @@
+.item {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  position: fixed;
+  right: 10rem;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%);
+}
+
+.button {
+  font-size: 2rem;
+}

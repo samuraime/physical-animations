@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import Home from './pages/Home';
+import Easing from './pages/Easing';
 import VectorDemo from './pages/Vector';
-import s from './App.module.css';
+// import s from './App.module.css';
 
 const routes = [
   {
     path: '/vector',
     component: VectorDemo,
   },
+  {
+    path: '/easing',
+    component: Easing,
+  }
 ];
 
 function App() {
@@ -20,7 +25,8 @@ function App() {
           <Route
             key={path}
             path={path}
-            render={() => <Component className={s.full} />}
+            component={Component}
+            // render={() => <Component className={s.full} />}
           />
         ))}
       </Switch>

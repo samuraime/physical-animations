@@ -78,13 +78,3 @@ export const captureMouse = (element) => {
   
   return mouse;
 };
-
-export default {
-  map,
-  noiseMap,
-  random,
-  toDegree,
-  toRadian,
-  getNormalPoint,
-  captureMouse,
-};
