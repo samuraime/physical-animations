@@ -17,6 +17,8 @@ export default function withCanvas(draw) {
       const dpi = 2;
       const width = canvas.clientWidth * dpi;
       const height = canvas.clientHeight * dpi;
+      canvas.width = width;
+      canvas.height = height;
 
       draw({
         canvas,

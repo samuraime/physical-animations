@@ -4,7 +4,8 @@ import s from './Easing.module.css';
 // window.scrollTo({ top: 0, behavior: 'smooth' });
 function easing(source, target) {
   const delta = target - source;
-  const next = source + delta * 0.05;
+  const v = 0.05 * delta;
+  const next = source + v;
   if (Math.abs(next - target) < 1) {
     return;
   }

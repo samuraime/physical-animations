@@ -14,11 +14,10 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
       - 运动和距离成正比 - 距离越远, 运动程度越大
 
     - 缓动
-
+      
       滚动条平滑移动到指定位置
 
     - 弹动
-
 
   - 跟随
 
