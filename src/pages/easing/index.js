@@ -1,1 +1,1 @@
-export { default } from './Easing';
+export { default as Easing } from './Easing';

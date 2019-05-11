@@ -1,6 +1,6 @@
 import withCanvas from '../../components/withCanvas';
 
-function Spring({ canvas, context: ctx, width, height }) {
+function Spring({ context: ctx, width, height }) {
   const defaultY = height / 2;
   const x = width / 2;
   let y = defaultY + 200;

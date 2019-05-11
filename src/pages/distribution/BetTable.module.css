@@ -1,0 +1,18 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  position: relative;
+  padding: 50px;
+  background: #666;
+}
+
+.chip {
+  position: absolute;
+  transform: translate(50px, 50px) translate(-50%, -50%);
+}

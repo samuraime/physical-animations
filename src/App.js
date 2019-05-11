@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import Home from './pages/Home';
-import Easing from './pages/easing';
-import Spring from './pages/spring';
+import { Easing } from './pages/easing';
+import { Spring } from './pages/spring';
+import { Distribution, BetTable } from './pages/distribution';
 import VectorDemo from './pages/vector';
-import s from './App.module.css';
 
 const routes = [
   {
@@ -20,22 +19,23 @@ const routes = [
     component: Spring,
     isCanvas: true,
   },
+  {
+    path: '/distribution',
+    component: Distribution,
+    exact: true,
+  },
+  {
+    path: '/distribution/bet-table',
+    component: BetTable,
+  },
 ];
 
 function App() {
   return (
     <Router>
       <Switch>
-        {/*<Route exact path="/" component={Home} />*/}
-        {routes.map(({ path, component: Component, isCanvas }) => (
-          <Route
-            key={path}
-            path={path}
-            component={isCanvas
-               ? () => <Component className={s.full} />
-               : Component
-            }
-          />
+        {routes.map(item => (
+          <Route key={item.path} {...item} />
         ))}
       </Switch>
     </Router>

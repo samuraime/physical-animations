@@ -1,1 +1,1 @@
-export { default } from './Spring';
+export { default as Spring } from './Spring';

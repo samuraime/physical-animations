@@ -1,0 +1,21 @@
+.chip {
+  width: 25px;
+  height: 25px;
+  background: no-repeat center / auto 25px;
+}
+
+.chip1 {
+  background-image: url(../../images/chip1.png);
+}
+.chip2 {
+  background-image: url(../../images/chip2.png);
+}
+.chip3 {
+  background-image: url(../../images/chip3.png);
+}
+.chip4 {
+  background-image: url(../../images/chip4.png);
+}
+.chip5 {
+  background-image: url(../../images/chip5.png);
+}
