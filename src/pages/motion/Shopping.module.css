@@ -1,0 +1,64 @@
+.root {
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 35px;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 35px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoppingCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  background: #ff0036;
+}
+
+.cart {
+  width: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #fff;
+}
+
+.placeholder {
+  width: 80vw;
+  height: 20vh;
+  background: #eee;
+  margin: 20px auto;
+}
+
+.buy {
+  background: #ff0036;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  width: 180px;
+  line-height: 38px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+
+.item {
+  position: fixed;
+  left: -15px;
+  top: -15px;
+  width: 30px;
+  height: 30px;
+  background: url(../../images/fruit.png) no-repeat center / contain;
+  display: none;
+}

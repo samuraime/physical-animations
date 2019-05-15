@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
+import { Shopping } from './pages/motion';
 import VectorDemo from './pages/vector';
 
 const routes = [
@@ -27,6 +28,10 @@ const routes = [
   {
     path: '/distribution/bet-table',
     component: BetTable,
+  },
+  {
+    path: '/motion/shopping',
+    component: Shopping,
   },
 ];
 
