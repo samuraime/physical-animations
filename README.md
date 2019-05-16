@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ## Content
 
-  - 缓动 Easing / 弹动 Spring
+### 缓动 Easing / 弹动 Spring
 
     比例运动
       - 设置目标点
@@ -19,15 +19,17 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
     - 弹动
 
-  - 跟随
+### 跟随
 
-    鼠标跟随效果, 小尾巴
+    - 鼠标跟随效果, 小尾巴
+    - 波形文字
 
-  - 随机游走
+### 随机游走
 
-    噪声 / 布朗运动
+    - 噪声
+    - 布朗运动
 
-  - 随机分布 Random Distribution
+### 随机分布 Random Distribution
 
     - 方形分布
 
@@ -35,22 +37,27 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
       实例: 压筹码
 
-    - 圆形均布
-    
-  - 二维运动
+### 二维运动
 
     - 矢量
 
-    实例
+    - 平抛运动
+
       - 商品跳进购物车
       - 金币入袋
       - 抽奖
 
-  - 碰撞
+### 碰撞
+
+  - 两个球
+
+### 引力
+  
+  - 捕获天体
 
   - 地月 / 太阳系
 
-  - 粒子
+### 粒子
 
 ## Reference
 
