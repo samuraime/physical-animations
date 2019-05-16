@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px 0;
+  height: 100px;
   background: #ff0036;
 }
 
@@ -35,8 +35,8 @@
 }
 
 .placeholder {
-  width: 80vw;
-  height: 20vh;
+  width: 80%;
+  height: 150px;
   background: #eee;
   margin: 20px auto;
 }
@@ -51,6 +51,8 @@
   cursor: pointer;
   display: block;
   margin: 20px auto;
+  height: 40px;
+  padding: 0;
 }
 
 .item {
@@ -61,4 +63,6 @@
   height: 30px;
   background: url(../../images/fruit.png) no-repeat center / contain;
   display: none;
+  transform: translate(0, 0);
+  z-index: 10;
 }
