@@ -8,18 +8,16 @@ import s from './Shopping.module.css';
  * @param {Vector} target
  */
 function jumpToCart(element, source, target) {
-  // 做一个商品进购物车的抛物线
-  // given: sourceLocation, targetLocation, vx -> time
-  // in the y direction, deltaY = vy * t + 1 / 2 * ay * t ^ 2
-  // if given a, we can get v0.
-  // a should be positive, v0 should be negative.
+  // given: source location, target location, vx -> time
+  // in the y direction, delta.y = v.y * t + 1 / 2 * a.y * t ^ 2
+  // a.y should be positive, v.y should be negative.
   const delta = Vector.sub(target, source);
-  const t = 40;
-  const a = new Vector(0, 1.5);
+  const t = 80;
+  const a = new Vector(0, .3);
   const v = new Vector(delta.x / t, (delta.y - 1 / 2 * a.y * t ** 2) / t);
   const p = source.copy();
 
-  const updatePosition = (position) => {
+  const setPosition = (position) => {
     element.style.display = 'block';
     element.style.transform = `translate(${position.x}px, ${position.y}px)`;
   };
@@ -30,11 +28,15 @@ function jumpToCart(element, source, target) {
         return;
       }
 
-      updatePosition(p);
+      setPosition(p);
 
       // calc new position
-      v.add(a);
       p.add(v);
+      v.add(a);
+
+      // if (p.x > target.x) {
+      //   p.set(target.x, target.y);
+      // }
 
       update();
     });
