@@ -12,8 +12,8 @@ function jumpToCart(element, source, target) {
   // in the y direction, delta.y = v.y * t + 1 / 2 * a.y * t ^ 2
   // a.y should be positive, v.y should be negative.
   const delta = Vector.sub(target, source);
-  const t = 80;
-  const a = new Vector(0, .3);
+  const t = 60; // frames
+  const a = new Vector(0, .25);
   const v = new Vector(delta.x / t, (delta.y - 1 / 2 * a.y * t ** 2) / t);
   const p = source.copy();
 
@@ -31,12 +31,8 @@ function jumpToCart(element, source, target) {
       setPosition(p);
 
       // calc new position
-      p.add(v);
       v.add(a);
-
-      // if (p.x > target.x) {
-      //   p.set(target.x, target.y);
-      // }
+      p.add(v);
 
       update();
     });
