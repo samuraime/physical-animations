@@ -3,7 +3,7 @@ import withCanvas from '../../components/withCanvas';
 function Spring({ context: ctx, width, height }) {
   const defaultY = height / 2;
   const x = width / 2;
-  let y = defaultY + 200;
+  let y = defaultY + 400;
   let v = 0;
   let a = 0;
   const ballRadius = 20;
@@ -47,9 +47,10 @@ function Spring({ context: ctx, width, height }) {
       const delta = y - defaultY;
       // F = k * delta;
       // a = k * delta;
-      a = -0.005 * delta;
+      a = -0.02 * delta;
       v += a;
       y += v;
+      v *= 0.99; // friction
 
       update();
     });
