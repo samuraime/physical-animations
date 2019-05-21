@@ -1,6 +1,6 @@
 import withCanvas from '../../components/withCanvas';
 import Vector from '../../utils/Vector';
-import { random } from '../../utils';
+// import { random } from '../../utils';
 
 function Capture({ context: ctx, width, height }) {
   const center = new Vector(width / 2, height / 2);

@@ -4,7 +4,7 @@ import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
 import { Shopping } from './pages/motion';
-import { SimpleRandom, BrownianMotion, PerlinNoise } from './pages/random-motion';
+import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
 import { Capture } from './pages/gravity';
 import s from './App.module.css';
 
@@ -20,8 +20,8 @@ const routes = [
     component: fullScreen(Spring),
   },
   {
-    path: '/random-motion',
-    component: fullScreen(SimpleRandom),
+    path: '/random-motion/simple',
+    component: fullScreen(SimpleMotion),
   },
   {
     path: '/random-motion/brownian',
@@ -29,7 +29,7 @@ const routes = [
   },
   {
     path: '/random-motion/noise',
-    component: fullScreen(PerlinNoise),
+    component: fullScreen(NoiseMotion),
   },
   {
     path: '/distribution',

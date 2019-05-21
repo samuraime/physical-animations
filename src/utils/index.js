@@ -51,10 +51,10 @@ export const getNormalPoint = (location, start, end) => {
  */
 export const captureMouse = (element) => {
   const mouse = new Vector(0, 0);
-  const body_scrollLeft = document.body.scrollLeft;
-  const element_scrollLeft = document.documentElement.scrollLeft;
-  const body_scrollTop = document.body.scrollTop;
-  const element_scrollTop = document.documentElement.scrollTop;
+  const bodyScrollLeft = document.body.scrollLeft;
+  const elementScrollLeft = document.documentElement.scrollLeft;
+  const bodyScrollTop = document.body.scrollTop;
+  const elementScrollTop = document.documentElement.scrollTop;
   const offsetLeft = element.offsetLeft;
   const offsetTop = element.offsetTop;
   
@@ -65,8 +65,8 @@ export const captureMouse = (element) => {
       x = event.pageX;
       y = event.pageY;
     } else {
-      x = event.clientX + body_scrollLeft + element_scrollLeft;
-      y = event.clientY + body_scrollTop + element_scrollTop;
+      x = event.clientX + bodyScrollLeft + elementScrollLeft;
+      y = event.clientY + bodyScrollTop + elementScrollTop;
     }
     x -= offsetLeft;
     y -= offsetTop;
