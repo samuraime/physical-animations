@@ -4,21 +4,32 @@ import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
 import { Shopping } from './pages/motion';
-import VectorDemo from './pages/vector';
+import { SimpleRandom, BrownianMotion, PerlinNoise } from './pages/random-motion';
+import { Capture } from './pages/gravity';
+import s from './App.module.css';
+
+const fullScreen = Component => () => <Component className={s.fullScreen} />;
 
 const routes = [
-  {
-    path: '/vector',
-    component: VectorDemo,
-  },
   {
     path: '/easing',
     component: Easing,
   },
   {
     path: '/spring',
-    component: Spring,
-    isCanvas: true,
+    component: fullScreen(Spring),
+  },
+  {
+    path: '/random-motion',
+    component: fullScreen(SimpleRandom),
+  },
+  {
+    path: '/random-motion/brownian',
+    component: fullScreen(BrownianMotion),
+  },
+  {
+    path: '/random-motion/noise',
+    component: fullScreen(PerlinNoise),
   },
   {
     path: '/distribution',
@@ -32,6 +43,10 @@ const routes = [
   {
     path: '/motion/shopping',
     component: Shopping,
+  },
+  {
+    path: '/gravity',
+    component: fullScreen(Capture),
   },
 ];
 

@@ -13,7 +13,7 @@ function jumpToCart(element, source, target) {
   // a.y should be positive, v.y should be negative.
   const delta = Vector.sub(target, source);
   const t = 60; // frames
-  const a = new Vector(0, .25);
+  const a = new Vector(0, .5);
   const v = new Vector(delta.x / t, (delta.y - 1 / 2 * a.y * t ** 2) / t);
   const p = source.copy();
 
