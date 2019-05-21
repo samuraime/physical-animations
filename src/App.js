@@ -6,6 +6,7 @@ import { Distribution, BetTable } from './pages/distribution';
 import { Shopping } from './pages/motion';
 import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
 import { Capture } from './pages/gravity';
+import { NodeGarden } from './pages/particles';
 import s from './App.module.css';
 
 const fullScreen = Component => () => <Component className={s.fullScreen} />;
@@ -47,6 +48,10 @@ const routes = [
   {
     path: '/gravity',
     component: fullScreen(Capture),
+  },
+  {
+    path: '/particles/node-garden',
+    component: fullScreen(NodeGarden),
   },
 ];
 

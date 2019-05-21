@@ -4,18 +4,23 @@
 
 This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
-## 预先知识
+## 预备知识
 
   - 速度, 加速度, 力等
   - 向量
 
 ## Content
 
+### Comparison
+  
+  - CSS Animation
+  - Bezier
+
 ### 缓动与弹动 Easing and Springing
 
-  比例运动
-    - 设置目标点
-    - 确定物体与目标点的位置
+  比例运动  
+    - 设置目标点  
+    - 确定物体与目标点的位置  
     - 运动和距离成正比 - 距离越远, 运动程度越大
 
   - 缓动
@@ -55,7 +60,6 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
     实例:
       - 商品跳进购物车
-      - 金币入袋
       - 抽奖
 
 ### 碰撞 and 动量守恒
@@ -69,6 +73,8 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
   - 捕获天体
 
 ### 粒子 Particles
+  
+  - Node Garden
 
 ## Tips and Tricks
 
@@ -76,6 +82,7 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
   - [The Nature of Code](https://natureofcode.com/) [代码本色](https://item.jd.com/11587473.html)
   - [Foundation HTML5 Animation with JavaScript](https://lamberta.github.io/html5-animation/) [HTML5+JavaScript动画基础](https://item.jd.com/11253207.html)
+  - [Node Garden](https://github.com/pakastin/nodegarden)
 
 ## License
 

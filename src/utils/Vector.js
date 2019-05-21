@@ -131,6 +131,16 @@ export default class Vector {
   }
 
   /**
+   * 除标量
+   * @param {Number} v
+   */
+  div(v) {
+    this.x /= v;
+    this.y /= v;
+    return this;
+  }
+
+  /**
    * 单位化向量
    */
   normalize() {

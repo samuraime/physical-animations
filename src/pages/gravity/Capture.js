@@ -34,7 +34,7 @@ function Capture({ context: ctx, width, height }) {
 
       // const centripetalForce = ;
       const force = gravity;
-      const earthAcceleration = force.mult(1 / earthMass);
+      const earthAcceleration = force.div(earthMass);
       earchVelocity.add(earthAcceleration); 
       earthLocation.add(earchVelocity);
 
