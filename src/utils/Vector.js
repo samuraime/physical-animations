@@ -39,6 +39,15 @@ export default class Vector {
   /**
    * @param {Vector} v0
    * @param {Vector} v1
+   * @return {Number}
+   */
+  static squaredDist(v0, v1) {
+    return (v0.x - v1.x) ** 2 + (v0.y - v1.y) ** 2;
+  }
+
+  /**
+   * @param {Vector} v0
+   * @param {Vector} v1
    * @return {Number} 输入向量间的夹角
    */
   static angleBetween(v0, v1) {
@@ -197,6 +206,14 @@ export default class Vector {
    */
   dist(v) {
     return Vector.dist(this, v);
+  }
+
+  /**
+   * @param {Vector} v
+   * @return {Number}
+   */
+  squaredDist(v) {
+    return Vector.squaredDist(this, v);
   }
 
   /**

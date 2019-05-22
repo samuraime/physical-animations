@@ -2,6 +2,8 @@
 
 我要准备一个物理动画入门Session.  
 
+目标: 能徒手写简单二维动画
+
 This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ## 预备知识
@@ -60,11 +62,11 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ### 二维运动
 
-  - 平抛运动
+  平抛运动
 
-    实例:
-      - 商品跳进购物车
-      - 抽奖
+  - 商品跳进购物车
+  - Super Mario
+  - 抽奖
 
 ### 碰撞 and 动量守恒
   
@@ -73,7 +75,6 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ### 引力 Gravitation
   
-  - Super Mario
   - 捕获天体
 
 ### 粒子 Particles
@@ -81,6 +82,9 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
   - Node Garden
 
 ## Tips and Tricks
+
+  - squaredDistance
+  - 步长的选择
 
 ## Reference
 
