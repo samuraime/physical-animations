@@ -6,15 +6,19 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ## 预备知识
 
-  - 速度, 加速度, 力等
-  - 向量
+  - 速度v(velocity), 加速度a(acceleration), 力f(force)等
+  - 向量(vector)
+
+## 一些可能需要解释的点
+  
+  - 帧动画
+  - 画布坐标系, 单位(标准单位->绘制单位)
+  - 时间维度和空间维度的动画
+  - 比较CSS Animation
+  - 比较Bezier
+  - 噪声
 
 ## Content
-
-### Comparison
-  
-  - CSS Animation
-  - Bezier
 
 ### 缓动与弹动 Easing and Springing
 
@@ -29,7 +33,7 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
   - 弹动
 
-    就造个弹簧吧
+    造个弹簧吧
 
 ### 跟随
 

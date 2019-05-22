@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { NoiseFlowField } from './pages/field';
 import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
@@ -12,6 +13,11 @@ import s from './App.module.css';
 const fullScreen = Component => () => <Component className={s.fullScreen} />;
 
 const routes = [
+  {
+    path: '/',
+    component: fullScreen(NoiseFlowField),
+    exact: true,
+  },
   {
     path: '/easing',
     component: Easing,
