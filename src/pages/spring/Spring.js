@@ -8,7 +8,7 @@ function Spring({ context: ctx, width, height }) {
   let a = 0;
   const ballRadius = 20;
 
-  const drawAuxiliary = () => {
+  const renderAuxiliary = () => {
     const cx = width / 2;
 
     ctx.save();
@@ -28,9 +28,9 @@ function Spring({ context: ctx, width, height }) {
     ctx.restore();
   };
 
-  const draw = () => {
+  const render = () => {
     ctx.clearRect(0, 0, width, height);
-    drawAuxiliary();
+    renderAuxiliary();
 
     ctx.save();
     ctx.beginPath();
@@ -42,7 +42,7 @@ function Spring({ context: ctx, width, height }) {
 
   const update = () => {
     requestAnimationFrame(() => {
-      draw();
+      render();
 
       const delta = y - defaultY;
       // F = k * delta;

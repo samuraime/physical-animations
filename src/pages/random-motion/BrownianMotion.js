@@ -6,7 +6,7 @@ function BrownianMotion({ context: ctx, width, height }) {
   const location = new Vector(width / 2, height / 2);
   const velocity = new Vector(0, 0);
 
-  const draw = () => {
+  const render = () => {
     ctx.fillRect(location.x, location.y, 4, 4);
   };
 
@@ -19,9 +19,9 @@ function BrownianMotion({ context: ctx, width, height }) {
 
   const update = () => {
     requestAnimationFrame(() => {
-      update();
-      draw();
+      render();
       updateLocation();
+      update();
     });
   };
 

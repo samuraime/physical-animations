@@ -1,7 +1,7 @@
 import withCanvas from '../../components/withCanvas';
 import Vector from '../../utils/Vector';
 
-function Capture({ context: ctx, width, height }) {
+function Gravity({ context: ctx, width, height }) {
   const center = new Vector(width / 2, height / 2);
   const sunLocation = new Vector(center.x, center.y);
   const sunMass = 1000;
@@ -31,7 +31,6 @@ function Capture({ context: ctx, width, height }) {
       const gravityMag = 100 * earthMass * sunMass / r ** 2;
       const gravity = Vector.sub(sunLocation, earthLocation).setMag(gravityMag);
 
-      // const centripetalForce = ;
       const force = gravity;
       const earthAcceleration = force.div(earthMass);
       earchVelocity.add(earthAcceleration);
@@ -44,4 +43,4 @@ function Capture({ context: ctx, width, height }) {
   update();
 }
 
-export default withCanvas(Capture);
+export default withCanvas(Gravity);

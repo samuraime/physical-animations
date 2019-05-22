@@ -61,8 +61,6 @@ function NodeGarden({ context: ctx, width, height }) {
     })
   ));
 
-  console.log(nodes);
-
   const render = () => {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#000';

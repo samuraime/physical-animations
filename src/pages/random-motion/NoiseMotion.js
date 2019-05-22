@@ -9,7 +9,7 @@ function NoiseMotion({ context: ctx, width, height }) {
   let tx = 0;
   let ty = 10000;
 
-  const draw = () => {
+  const render = () => {
     ctx.fillRect(location.x, location.y, 4, 4);
   };
 
@@ -22,9 +22,9 @@ function NoiseMotion({ context: ctx, width, height }) {
 
   const update = () => {
     requestAnimationFrame(() => {
-      update();
-      draw();
+      render();
       updateLocation();
+      update();
     });
   };
 

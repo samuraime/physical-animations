@@ -5,7 +5,7 @@ import { random } from '../../utils';
 function SimpleMotion({ context: ctx, width, height }) {
   const walker = new Vector(width / 2, height / 2);
 
-  const draw = () => {
+  const render = () => {
     ctx.fillRect(walker.x, walker.y, 4, 4);
   };
 
@@ -16,9 +16,9 @@ function SimpleMotion({ context: ctx, width, height }) {
 
   const update = () => {
     requestAnimationFrame(() => {
-      update();
-      draw();
+      render();
       updateLocation();
+      update();
     });
   };
 
