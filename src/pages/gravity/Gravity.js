@@ -22,22 +22,21 @@ function Gravity({ context: ctx, width, height }) {
     ctx.closePath();
   };
 
+  const resetLocation = () => {
+    earthLocation.add(earchVelocity);
+
+    // F = G * m1 * m2 / r ** 2
+    const r2 = Vector.squaredDist(sunLocation, earthLocation);
+    const gravityMag = 100 * earthMass * sunMass / r2;
+    const gravity = Vector.sub(sunLocation, earthLocation).setMag(gravityMag);
+    const earthAcceleration = gravity.div(earthMass);
+    earchVelocity.add(earthAcceleration);
+  };
+
   const update = () => {
-    requestAnimationFrame(() => {
-      render();
-
-      // F = G * m1 * m2 / r ** 2
-      const r = Vector.dist(sunLocation, earthLocation);
-      const gravityMag = 100 * earthMass * sunMass / r ** 2;
-      const gravity = Vector.sub(sunLocation, earthLocation).setMag(gravityMag);
-
-      const force = gravity;
-      const earthAcceleration = force.div(earthMass);
-      earchVelocity.add(earthAcceleration);
-      earthLocation.add(earchVelocity);
-
-      update();
-    });
+    requestAnimationFrame(update);
+    render();
+    resetLocation();
   };
 
   update();

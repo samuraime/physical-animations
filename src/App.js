@@ -6,7 +6,7 @@ import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
 import { Shopping } from './pages/motion';
 import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
-import { Capture } from './pages/gravity';
+import { Gravity } from './pages/gravity';
 import { NodeGarden } from './pages/particles';
 import s from './App.module.css';
 
@@ -25,6 +25,14 @@ const routes = [
   {
     path: '/spring',
     component: fullScreen(Spring),
+  },
+  {
+    path: '/motion/shopping',
+    component: Shopping,
+  },
+  {
+    path: '/gravity/simple',
+    component: fullScreen(Gravity),
   },
   {
     path: '/random-motion/simple',
@@ -46,14 +54,6 @@ const routes = [
   {
     path: '/distribution/bet-table',
     component: BetTable,
-  },
-  {
-    path: '/motion/shopping',
-    component: Shopping,
-  },
-  {
-    path: '/gravity',
-    component: fullScreen(Capture),
   },
   {
     path: '/particles/node-garden',
