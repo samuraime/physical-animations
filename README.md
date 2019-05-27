@@ -1,6 +1,6 @@
 # Physical Animations
 
-我要准备一个物理动画入门Session.  
+我要准备一个物理动画入门Session.  [SLIDES.md](./SLIDES.md)
 
 目标: 能徒手写简单二维动画
 
@@ -31,7 +31,7 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
   - 缓动
     
-    滚动条平滑移动```window.scrollTo({ top: 0, behavior: 'smooth' });```
+    滚动条平滑移动```window.scrollTo({ top, behavior: 'smooth' });```
 
   - 弹动
 
@@ -41,6 +41,23 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
   - 鼠标跟随效果, 小尾巴
   - 波形文字
+
+### 二维运动
+
+  平抛运动
+
+  - 商品跳进购物车
+  - Super Mario
+  - 抽奖
+
+### 碰撞 and 动量守恒
+  
+  - 匀速弹球
+  - 桌球碰撞
+
+### 引力 Gravitation
+  
+  - 捕获天体
 
 ### 随机游走 Random (with Vector)
   
@@ -59,23 +76,6 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
   - 圆形分布
 
     实例: 压筹码
-
-### 二维运动
-
-  平抛运动
-
-  - 商品跳进购物车
-  - Super Mario
-  - 抽奖
-
-### 碰撞 and 动量守恒
-  
-  - 匀速弹球
-  - 桌球碰撞
-
-### 引力 Gravitation
-  
-  - 捕获天体
 
 ### 粒子 Particles
   
