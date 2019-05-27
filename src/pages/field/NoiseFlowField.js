@@ -24,6 +24,7 @@ function NoiseFlowField({ context: ctx, width, height }) {
         this.fields[i] = [];
         for (let j = 0; j < this.cols; j++) {
           // 只计算分块中心点的噪声作为可视化展示
+          // TODO: move this to another canvas
           const n = noise.simplex2(
             (this.size * j + this.size / 2) * this.period,
             (this.size * i + this.size / 2) * this.period
