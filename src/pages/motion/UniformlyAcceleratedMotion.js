@@ -5,7 +5,7 @@ function UniformlyAcceleratedMotion({ context: ctx, width, height }) {
     x: 0,
     y: height / 2,
     v: 0,
-    a: 1,
+    a: 0.5,
   };
 
   const render = () => {

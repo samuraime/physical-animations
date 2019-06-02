@@ -80,6 +80,7 @@ function NodeGarden({ context: ctx, width, height }) {
           continue;
         }
 
+        // 碰撞检测
         if (squaredDistance <= (nodeA.m / 2 + nodeB.m / 2) * (nodeA.m / 2 + nodeB.m / 2)) {
           // collision: remove smaller or equal - never both of them
           if (nodeA.m <= nodeB.m) {

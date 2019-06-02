@@ -28,6 +28,24 @@ export default class Vector {
   }
 
   /**
+   * 乘标量
+   * @param {Vector} v
+   * @param {Number} s
+   */
+  static mult(v, s) {
+    return new Vector(v.x * s, v.y * s);
+  }
+
+  /**
+   * 除标量
+   * @param {Vector} v
+   * @param {Number} s
+   */
+  static div(v, s) {
+    return new Vector(v.x / s, v.y / s);
+  }
+
+  /**
    * @param {Vector} v0
    * @param {Vector} v1
    * @return {Number}
@@ -224,11 +242,7 @@ export default class Vector {
     return Vector.angleBetween(this, v);
   }
 
-  copy() {
+  clone() {
     return new Vector(this.x, this.y);
-  }
-
-  get length() {
-    return this.mag();
   }
 };
