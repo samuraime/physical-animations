@@ -3,12 +3,16 @@
 ## Physical Animation
 
   - Natural
+
+    - Bezier 硬编码 难以控制物理模型
+    - Noise
+
   - Phisical Law
 
 ## Frame Animation
 
-  - 静态帧 Static Frame (TODO: translate)
-  - 模糊帧 Dynamic Frame (TODO: translate)
+  - 静态帧 Static Frame
+  - 模糊帧 Dynamic Frame
 
 ## Comparison
 
@@ -22,12 +26,7 @@
   - 控制不够灵活
   - 不规则曲线
 
-### Bezier
-
-  - 硬编码
-  - 难以控制物理模型
-
-## 预备知识
+## 开动前的准备
 
   - 速度v(velocity), 加速度a(acceleration), 力f(force), 质量m(mass), 时间t(time)
     ```
@@ -50,11 +49,14 @@
   - update (更新位置)
   - nextFrame (下一帧)
 
-## 开胃菜 - 匀速运动
+## 开胃菜 - 匀加速运动
 
   - Principle
     ```
-    location += velocity;
+    function update() {
+      velocity += acceleration;
+      location += velocity;
+    }
     ```
   - Code
   - Demo
@@ -68,8 +70,11 @@
 
   - Principle
     ```
-    velocity = k * delta;
-    location += velocity;
+    function easeIn() {
+      delta = target - current;
+      velocity = k * delta;
+      location += velocity;
+    }
     ```
   - Code
   - Demo `window.scrollTo({ top, behavior: 'smooth' });`
@@ -78,9 +83,12 @@
 
   - Principle
     ```
-    acceleration = k * delta;
-    velocity += acceleration;
-    location += velocity;
+    function spring() {
+      delta = target - current;
+      acceleration = k * delta;
+      velocity += acceleration;
+      location += velocity;
+    }
     ```
   - Code
   - Demo 弹簧
@@ -95,16 +103,19 @@
 
   - Principle
     ```
-    velocity.add(acceleration);
-    location.add(velocity);
+    function update() {
+      velocity.add(acceleration);
+      location.add(velocity);
+    }
     ```
   - Code
   - Demo
   - Demo 购物车
   - Demo 抽奖
 
-## 碰撞
-
+## 碰撞 Collision
+  - 碰撞检测
+  - 动量守恒
   - Principle
     ```
     v0final = ((m0 - m1) * v0 + 2 * m1 * v1) / (m0 + m1);
@@ -113,7 +124,7 @@
   - Code
   - Demo
 
-## 引力
+## 引力 Gravity
 
   - Principle
     ```
@@ -122,7 +133,7 @@
   - Code
   - Demo
 
-## 随机分布
+## 随机分布 Random Distribution
 
 ### 方形分布
 
@@ -144,7 +155,7 @@
   - Code
   - Demo
 
-## 随机游走
+## 随机游走 Random Walk
 
   - Principle
     ```
@@ -153,7 +164,7 @@
   - Code
   - Demo
 
-## Particles
+## 最后的硬菜 Particles
 
   - 粒子
   - Code

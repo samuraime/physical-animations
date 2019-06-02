@@ -1,8 +1,8 @@
 # Physical Animations
 
-我要准备一个物理动画入门Session.  [SLIDES.md](./SLIDES.md)
+物理动画入门Session.  [SLIDES.md](./SLIDES.md)
 
-目标: 能徒手写简单二维动画
+小目标: 利用简单物理公式能零依赖编写简单二维动画
 
 This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
