@@ -1,0 +1,88 @@
+.root {
+  position:relative;
+  width: 750px;
+  margin: auto;
+}
+.root .luckyNumber {
+  position:absolute;
+  width:550px;
+  height:120px;
+  margin-top:-60px;
+  margin-left:-275px;
+  left:50%;
+  z-index:1;
+  font-size:36px;
+  font-weight:300;
+  color:#fff;
+  padding-top:4px;
+  padding-left:280px;
+  box-sizing:border-box;
+  line-height:120px;
+  background:url(https://cdn01.weipaitang.com/static/2017072070234cc0-73bf-43e4-b6d8-5ec54a95be75-W550H120) no-repeat center/cover;
+}
+.root .main {
+  padding:20px 0 20px 30px;
+  background:#fff;
+}
+.root .main > * {
+  padding-right:30px;
+}
+.root .main .lotteryWrapper {
+  margin-bottom:25px;
+}
+.root .main .lotteryWrapper .lottery {
+  width:690px;
+  height:87px;
+  padding:0;
+  line-height:87px;
+  background:#08ba06;
+  border-radius:5px;
+  font-size:32px;
+  text-align:center;
+  color:#fff;
+  border:none;
+  outline:none;
+}
+.root .main .lotteryWrapper .lottery.lotteryDisabled {
+  background:#ccc;
+}
+.root .main .lotteryWrapper .lottery .rest {
+  font-size:22px;
+}
+.root .main .lotteryRecord {
+  position:relative;
+  width:660px;
+  padding:15px;
+  margin-bottom:25px;
+  background:#f0f1f2;
+}
+.root .main .lotteryRecord .title {
+  display:flex;
+  justify-content:space-between;
+  font-size:24px;
+  color:#a5a5a5;
+  font-weight:bold;
+}
+.root .main .lotteryRecord .container {
+  padding-top:10px;
+  overflow:hidden;
+  transition:height .25s ease;
+}
+.root .main .lotteryRecord .container .number {
+  height:40px;
+  line-height:40px;
+  font-size:24px;
+  color:#872533;
+  font-weight:bold;
+  margin-right:25px;
+  display:inline-block;
+  vertical-align:top;
+}
+.root .main .lotteryRecord .container .action {
+  position:absolute;
+  height: 40px;
+  line-height: 40px;
+  right: 15px;
+  bottom:15px;
+  color:#a5a5a5;
+}

@@ -4,7 +4,7 @@ import { NoiseFlowField } from './pages/field';
 import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
-import { UniformlyAcceleratedMotion, Shopping } from './pages/motion';
+import { UniformlyAcceleratedMotion, Shopping, Lottery } from './pages/motion';
 import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
 import { Gravity } from './pages/gravity';
 import { NodeGarden } from './pages/particles';
@@ -39,6 +39,11 @@ const routes = [
     path: '/motion/shopping',
     component: Shopping,
     name: '二维运动 - 购物车',
+  },
+  {
+    path: '/motion/lottery',
+    component: Lottery,
+    name: '二维运动 - 抽奖',
   },
   {
     path: '/gravity',
