@@ -4,7 +4,7 @@ import { NoiseFlowField } from './pages/field';
 import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
-import { Shopping } from './pages/motion';
+import { UniformlyAcceleratedMotion, Shopping } from './pages/motion';
 import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
 import { Gravity } from './pages/gravity';
 import { NodeGarden } from './pages/particles';
@@ -17,6 +17,10 @@ const routes = [
     path: '/',
     component: fullScreen(NoiseFlowField),
     exact: true,
+  },
+  {
+    path: '/motion/uniform-acceleration',
+    component: fullScreen(UniformlyAcceleratedMotion),
   },
   {
     path: '/easing',
