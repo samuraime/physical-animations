@@ -10,22 +10,20 @@ function BrownianMotion({ context: ctx, width, height }) {
     ctx.fillRect(location.x, location.y, 4, 4);
   };
 
-  const updateLocation = () => {
+  const update = () => {
     const deltaV = new Vector(random(-0.1, 0.1), random(-0.1, 0.1));
     velocity.add(deltaV);
     location.add(velocity);
     velocity.mult(0.98); // friction
   };
 
-  const update = () => {
-    requestAnimationFrame(() => {
-      render();
-      updateLocation();
-      update();
-    });
+  const animate = () => {
+    requestAnimationFrame(animate);
+    render();
+    update();
   };
 
-  update();
+  animate();
 }
 
 export default withCanvas(BrownianMotion);

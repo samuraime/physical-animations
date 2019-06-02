@@ -13,22 +13,20 @@ function NoiseMotion({ context: ctx, width, height }) {
     ctx.fillRect(location.x, location.y, 4, 4);
   };
 
-  const updateLocation = () => {
+  const update = () => {
     location.x = noiseMap(simplex.noise2D(tx, 0), 0, width);
     location.y = noiseMap(simplex.noise2D(ty, 0), 0, height);
     tx += 0.005;
     ty += 0.005;
   };
 
-  const update = () => {
-    requestAnimationFrame(() => {
-      render();
-      updateLocation();
-      update();
-    });
+  const animate = () => {
+    requestAnimationFrame(animate);
+    render();
+    update();
   };
 
-  update();
+  animate();
 }
 
 export default withCanvas(NoiseMotion);

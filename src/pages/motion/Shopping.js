@@ -22,23 +22,25 @@ function jumpToCart(element, source, target) {
     element.style.transform = `translate(${position.x}px, ${position.y}px)`;
   };
 
-  const update = () => {
-    requestAnimationFrame(() => {
-      if (p.x > target.x && p.y > target.y) {
-        return;
-      }
+  const animate = () => {
+    if (p.x > target.x && p.y > target.y) {
+      return;
+    }
 
-      setPosition(p);
+    if (p.x > target.x && p.y > target.y) {
+      return;
+    }
 
-      // calc new position
-      v.add(a);
-      p.add(v);
+    requestAnimationFrame(animate);
 
-      update();
-    });
+    setPosition(p);
+
+    // calc new position
+    v.add(a);
+    p.add(v);
   };
 
-  update();
+  animate();
 }
 
 function getElementPosition(element) {

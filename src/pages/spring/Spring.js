@@ -9,22 +9,12 @@ function Spring({ context: ctx, width, height }) {
   const ballRadius = 20;
 
   const renderAuxiliary = () => {
-    const cx = width / 2;
-
     ctx.save();
-
     ctx.beginPath();
     ctx.strokeStyle = '#ddd';
     ctx.moveTo(0, defaultY);
     ctx.lineTo(width, defaultY);
     ctx.stroke();
-
-    ctx.beginPath();
-    ctx.strokeStyle = '#333';
-    ctx.moveTo(cx, 0);
-    ctx.lineTo(cx, y);
-    ctx.stroke();
-
     ctx.restore();
   };
 
@@ -41,22 +31,22 @@ function Spring({ context: ctx, width, height }) {
   };
 
   const update = () => {
-    requestAnimationFrame(() => {
-      render();
-
-      const delta = y - defaultY;
-      // F = k * delta;
-      // a = k * delta;
-      a = -0.02 * delta;
-      v += a;
-      y += v;
-      v *= 0.99; // friction
-
-      update();
-    });
+    const delta = y - defaultY;
+    // F = k * delta;
+    // a = k * delta;
+    a = -0.02 * delta;
+    v += a;
+    v *= 0.99; // friction
+    y += v;
   };
 
-  update();
+  const animate = () => {
+    requestAnimationFrame(animate);
+    render();
+    update();
+  };
+
+  animate();
 }
 
 export default withCanvas(Spring);

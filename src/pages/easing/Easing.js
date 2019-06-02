@@ -28,8 +28,12 @@ function Easing() {
 
   return (
     <div>
-      {Array.from({ length: 100 }, (_, index) => (
-        <div key={index} className={s.item}>
+      {Array.from({ length: 120 }, (_, index) => (
+        <div
+          key={index}
+          className={s.item}
+          style={{ backgroundColor: `hsl(${index * 3}, 60%, 60%)`}}
+        >
           {index}
         </div>
       ))}

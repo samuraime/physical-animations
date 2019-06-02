@@ -9,20 +9,18 @@ function SimpleMotion({ context: ctx, width, height }) {
     ctx.fillRect(walker.x, walker.y, 4, 4);
   };
 
-  const updateLocation = () => {
+  const update = () => {
     walker.x += random(-5, 5);
     walker.y += random(-5, 5);
   };
 
-  const update = () => {
-    requestAnimationFrame(() => {
-      render();
-      updateLocation();
-      update();
-    });
+  const animate = () => {
+    requestAnimationFrame(animate);
+    render();
+    update();
   };
 
-  update();
+  animate();
 }
 
 export default withCanvas(SimpleMotion);

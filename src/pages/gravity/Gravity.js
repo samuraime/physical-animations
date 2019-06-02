@@ -4,10 +4,10 @@ import Vector from '../../utils/Vector';
 function Gravity({ context: ctx, width, height }) {
   const center = new Vector(width / 2, height / 2);
   const sunLocation = new Vector(center.x, center.y);
-  const sunMass = 1000;
+  const sunMass = 2000;
   const earthMass = 1;
-  const earthLocation = new Vector(0, height / 4);
-  const earchVelocity = new Vector(20, 0);
+  const earthLocation = new Vector(width / 2, height / 8);
+  const earchVelocity = new Vector(15, 0);
 
   const render = () => {
     ctx.clearRect(0, 0, width, height);
@@ -22,9 +22,8 @@ function Gravity({ context: ctx, width, height }) {
     ctx.closePath();
   };
 
-  const resetLocation = () => {
+  const update = () => {
     earthLocation.add(earchVelocity);
-
     // F = G * m1 * m2 / r ** 2
     const r2 = Vector.squaredDist(sunLocation, earthLocation);
     const gravityMag = 100 * earthMass * sunMass / r2;
@@ -33,13 +32,13 @@ function Gravity({ context: ctx, width, height }) {
     earchVelocity.add(earthAcceleration);
   };
 
-  const update = () => {
-    requestAnimationFrame(update);
+  const animate = () => {
+    requestAnimationFrame(animate);
     render();
-    resetLocation();
+    update();
   };
 
-  update();
+  animate();
 }
 
 export default withCanvas(Gravity);

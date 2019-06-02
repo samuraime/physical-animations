@@ -74,7 +74,6 @@ function NodeGarden({ context: ctx, width, height }) {
 
         // calculate gravity force
         const force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
-
         const opacity = force * 100;
 
         if (opacity < 0.025) {
@@ -112,12 +111,12 @@ function NodeGarden({ context: ctx, width, height }) {
     });
   };
 
-  const update = () => {
-    requestAnimationFrame(update);
+  const animate = () => {
+    requestAnimationFrame(animate);
     render();
   };
 
-  update();
+  animate();
 }
 
 export default withCanvas(NodeGarden);
