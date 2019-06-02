@@ -6,7 +6,7 @@ function Navigation({ routes }) {
   return (
     <ul className={s.root}>
       {routes.map(({ path, name }) => (
-        <li>
+        <li key={path}>
           <NavLink exact to={path} className={s.link} activeClassName={s.activeLink}>
             {name}
           </NavLink>

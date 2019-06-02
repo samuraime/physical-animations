@@ -48,7 +48,7 @@ const routes = [
   {
     path: '/gravity',
     component: fullScreen(Gravity),
-    name: '重力',
+    name: '引力',
   },
   {
     path: '/random-motion/simple',

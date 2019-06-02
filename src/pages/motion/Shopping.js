@@ -2,6 +2,12 @@ import React, { memo, useRef } from 'react';
 import Vector from '../../utils/Vector';
 import s from './Shopping.module.css';
 
+function Placeholder() {
+  return (
+    <div className={s.placeholder} />
+  );
+}
+
 /**
  * @param {HTMLElement} element
  * @param {Vector} source
@@ -23,10 +29,6 @@ function jumpToCart(element, source, target) {
   };
 
   const animate = () => {
-    if (p.x > target.x && p.y > target.y) {
-      return;
-    }
-
     if (p.x > target.x && p.y > target.y) {
       return;
     }
@@ -64,10 +66,10 @@ function Shopping() {
     <div className={s.root}>
       <div>
         <div ref={itemRef} className={s.item} /> 
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
         <button
           ref={buyRef}
           className={s.buy}
@@ -75,11 +77,10 @@ function Shopping() {
         >
           加入购物车
         </button>
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
-        <div className={s.placeholder} />
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
       </div>
       <div className={s.sidebar}>
         <div ref={cartRef} className={s.shoppingCart}>

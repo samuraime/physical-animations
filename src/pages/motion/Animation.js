@@ -20,16 +20,17 @@ export default class Animation {
       const vs = 0.008 * scaleSign;
       let s = start;
 
-      const nextTick = () => {
+      const update = () => {
         if (abs(s - start) > abs(ds)) {
           resolve();
-        } else {
-          s += vs;
-          this.node.style.transform = `scale3d(${s}, ${s}, 1)`;
-          requestAnimationFrame(nextTick);
+          return;
         }
+
+        s += vs;
+        this.node.style.transform = `scale3d(${s}, ${s}, 1)`;
+        requestAnimationFrame(update);
       };
-      nextTick();
+      update();
     });
   }
 
@@ -50,20 +51,21 @@ export default class Animation {
       let x = 0;
       let y = 0;
       let vy = 0;
-      const nextTick = () => {
+      const update = () => {
         if (abs(x) > abs(dx) || abs(y) > abs(dy)) {
           resolve();
-        } else {
-          x += vx;
-          vy += ay;
-          y += vy;
-          const ratio = 1 - abs(y / dy);
-          this.node.style.transform = `translate3d(${x}px, ${y}px, 0) scale3d(${ratio}, ${ratio}, 1)`;
-          this.node.style.opacity = ratio + 0.1; // 加个值，不让透明度消失太快
-          requestAnimationFrame(nextTick);
+          return;
         }
+
+        x += vx;
+        vy += ay;
+        y += vy;
+        const ratio = 1 - abs(y / dy);
+        this.node.style.transform = `translate3d(${x}px, ${y}px, 0) scale3d(${ratio}, ${ratio}, 1)`;
+        this.node.style.opacity = ratio + 0.1; // 加个值，不让透明度消失太快
+        requestAnimationFrame(update);
       };
-      nextTick();
+      update();
     });
   }
 }
