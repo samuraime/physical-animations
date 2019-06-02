@@ -29,13 +29,13 @@
 ## 开动前的准备
 
   - 速度v(velocity), 加速度a(acceleration), 力f(force), 质量m(mass), 时间t(time)
-    ```
+    ```js
     a = f / m;
     v = a * t;
     s = v * t;
     ````
   - 向量(vector)
-    ```
+    ```js
     { x, y }
     ```
   - 坐标系
@@ -81,7 +81,7 @@
     - 运动和距离成正比 - 距离越远, 运动程度越大
 
   - Principle
-    ```
+    ```js
     function easeIn() {
       delta = target - current;
       velocity = k * delta;
@@ -94,7 +94,7 @@
 ## 弹动 Spring
 
   - Principle
-    ```
+    ```js
     function spring() {
       delta = target - current;
       acceleration = k * delta;
@@ -114,7 +114,7 @@
 ## 二维运动(重点看平抛运动)
 
   - Principle
-    ```
+    ```js
     function update() {
       velocity.add(acceleration);
       location.add(velocity);
@@ -129,7 +129,7 @@
   - 碰撞检测
   - 动量守恒
   - Principle
-    ```
+    ```js
     v0final = ((m0 - m1) * v0 + 2 * m1 * v1) / (m0 + m1);
     v1final = ((m1 - m0) * v1 + 2 * m0 * v0) / (m0 + m1);
     ```
@@ -139,7 +139,7 @@
 ## 引力 Gravity
 
   - Principle
-    ```
+    ```js
     F = G * m1 * m2 / r ** 2;
     ```
   - Code
@@ -150,7 +150,7 @@
 ### 方形分布
 
   - Principle
-    ```
+    ```js
     x = random(0, width);
     y = random(0, height);
     ```
@@ -160,7 +160,7 @@
 ### 圆形分布
   
   - Principle
-    ```
+    ```js
     x = randomRadius * cos(randomAngle);
     y = randomRadius * sin(randomAngle);
     ```
@@ -170,7 +170,7 @@
 ## 随机游走 Random Walk
 
   - Principle
-    ```
+    ```js
     velocity += random();
     ```
   - Code
