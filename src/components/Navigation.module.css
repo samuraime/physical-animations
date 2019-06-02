@@ -1,0 +1,14 @@
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.activeLink {
+  font-style: italic;
+}
