@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { NoiseFlowField } from './pages/field';
 import { Easing } from './pages/easing';
 import { Spring } from './pages/spring';
