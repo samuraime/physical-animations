@@ -6,6 +6,7 @@ import { Spring } from './pages/spring';
 import { Distribution, BetTable } from './pages/distribution';
 import { UniformlyAcceleratedMotion, Shopping, Lottery } from './pages/motion';
 import { SimpleMotion, BrownianMotion, NoiseMotion } from './pages/random-motion';
+import { Collision } from './pages/collision';
 import { Gravity } from './pages/gravity';
 import { NodeGarden } from './pages/particles';
 import Navigation from './components/Navigation';
@@ -44,6 +45,11 @@ const routes = [
     path: '/motion/lottery',
     component: Lottery,
     name: '二维运动 - 抽奖',
+  },
+  {
+    path: '/collision',
+    component: fullScreen(Collision),
+    name: '碰撞',
   },
   {
     path: '/gravity',

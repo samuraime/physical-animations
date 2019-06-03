@@ -20,7 +20,7 @@ export default function withCanvas(draw) {
       canvas.width = width;
       canvas.height = height;
 
-      draw({
+      return draw({
         canvas,
         context,
         width,

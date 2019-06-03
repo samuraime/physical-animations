@@ -19,15 +19,6 @@ export default class Vector {
   }
 
   /**
-   * 点乘
-   * @param {Vector} v0
-   * @param {Vector} v1
-   */
-  static dot(v0, v1) {
-    return v0.x * v1.x + v0.y * v1.y;
-  }
-
-  /**
    * 乘标量
    * @param {Vector} v
    * @param {Number} s
@@ -43,6 +34,15 @@ export default class Vector {
    */
   static div(v, s) {
     return new Vector(v.x / s, v.y / s);
+  }
+
+  /**
+   * 点乘
+   * @param {Vector} v0
+   * @param {Vector} v1
+   */
+  static dot(v0, v1) {
+    return v0.x * v1.x + v0.y * v1.y;
   }
 
   /**
@@ -140,14 +140,6 @@ export default class Vector {
   }
 
   /**
-   * 点乘
-   * @param {Vector} v
-   */
-  dot(v) {
-    return Vector.dot(this, v);
-  }
-
-  /**
    * 乘标量
    * @param {Number} v
    */
@@ -165,6 +157,14 @@ export default class Vector {
     this.x /= v;
     this.y /= v;
     return this;
+  }
+
+  /**
+   * 点乘
+   * @param {Vector} v
+   */
+  dot(v) {
+    return Vector.dot(this, v);
   }
 
   /**

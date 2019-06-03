@@ -186,7 +186,8 @@
 
   理解原理, 必要时简单实现, 让Web更有表现力
 
-  - 添加更多物理模型 / 简化模型
+  - 更多物理模型
+  - 简化模型
   - Tips and Tricks
   - Optimization for production
 
