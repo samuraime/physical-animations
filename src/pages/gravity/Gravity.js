@@ -1,35 +1,52 @@
 import withCanvas from '../../components/withCanvas';
 import Vector from '../../utils/Vector';
 
+class Planet extends Vector {
+  constructor({ x, y, m, v, r }) {
+    super(x, y);
+    this.m = m;
+    this.v = v;
+    this.r = r;
+  }
+}
+
 function Gravity({ context: ctx, width, height }) {
   const center = new Vector(width / 2, height / 2);
-  const sunLocation = new Vector(center.x, center.y);
-  const sunMass = 2000;
-  const earthMass = 1;
-  const earthLocation = new Vector(width / 2, height / 8);
-  const earchVelocity = new Vector(15, 0);
+  const sun = new Planet({
+    x: center.x,
+    y: center.y,
+    m: 2000,
+    v: new Vector(0, 0),
+    r: 100,
+  });
+  const earth = new Planet({
+    x: width / 2,
+    y: height / 8,
+    m: 1,
+    v: new Vector(15, 0),
+    r: 20,
+  });
+  const planets = [sun, earth];
 
   const render = () => {
     ctx.clearRect(0, 0, width, height);
-    ctx.beginPath();
-    ctx.arc(sunLocation.x, sunLocation.y, 100, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.beginPath();
-    ctx.arc(earthLocation.x, earthLocation.y, 20, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.closePath();
+    planets.forEach(({ x, y, r }) => {
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+    });
   };
 
   const update = () => {
-    earthLocation.add(earchVelocity);
+    earth.add(earth.v);
     // F = G * m1 * m2 / r ** 2
-    const r2 = Vector.squaredDist(sunLocation, earthLocation);
-    const gravityMag = 100 * earthMass * sunMass / r2;
-    const gravity = Vector.sub(sunLocation, earthLocation).setMag(gravityMag);
-    const earthAcceleration = gravity.div(earthMass);
-    earchVelocity.add(earthAcceleration);
+    const G = 100;
+    const r2 = Vector.squaredDist(sun, earth);
+    const gravityMag = G * earth.m * sun.m / r2;
+    const gravity = Vector.sub(sun, earth).setMag(gravityMag);
+    const a = gravity.div(earth.m);
+    earth.v.add(a);
   };
 
   const animate = () => {

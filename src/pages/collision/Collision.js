@@ -22,6 +22,10 @@ class Ball extends Vector {
     node.v = nodeV;
   }
 
+  update() {
+    this.add(this.v);
+  }
+
   render() {
     const { context: ctx, x, y, radius } = this;
     ctx.save();
@@ -65,7 +69,7 @@ function Collision({ context: ctx, width, height }) {
       theBig.collideTo(theSmall);
     }
     balls.forEach((ball) => {
-      ball.add(ball.v);
+      ball.update();
     });
   };
 

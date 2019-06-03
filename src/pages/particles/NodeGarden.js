@@ -93,6 +93,8 @@ function NodeGarden({ context: ctx, width, height }) {
 
         // calculate gravity direction
         const direction = Vector.sub(nodeB.location, nodeA.location);
+        nodeA.addForce(force, direction);
+        nodeB.addForce(-force, direction);
 
         // draw gravity lines
         ctx.beginPath();
@@ -100,9 +102,6 @@ function NodeGarden({ context: ctx, width, height }) {
         ctx.moveTo(nodeA.location.x, nodeA.location.y);
         ctx.lineTo(nodeB.location.x, nodeB.location.y);
         ctx.stroke();
-
-        nodeA.addForce(force, direction);
-        nodeB.addForce(-force, direction);
       }
     }
 
