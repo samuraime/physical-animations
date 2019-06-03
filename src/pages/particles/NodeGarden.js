@@ -2,14 +2,16 @@ import withCanvas from '../../components/withCanvas';
 import Vector from '../../utils/Vector';
 import { random } from '../../utils';
 
-class Node {
+class Node extends Vector {
   constructor(garden) {
+    super();
     this.garden = garden;
     this.reset();
   }
 
   reset() {
-    this.location = new Vector(random(0, this.garden.width), random(0, this.garden.height));
+    this.x = random(0, this.garden.width);
+    this.y = random(0, this.garden.height);
     this.v = new Vector(random(-0.25, 0.25), random(-0.25, 0.25));
     this.m = random(0.5, 3);
   }
@@ -32,11 +34,10 @@ class Node {
   }
 
   update() {
-    this.location.add(this.v.mult(1));
+    this.add(this.v.mult(1));
     // this.x += this.vx * deltaTime / targetFPS;
 
-    const { x, y } = this.location;
-    const { width, height } = this.garden;
+    const { x, y, garden: { width, height } } = this;
 
     if (x > width + 50 || x < -50 || y > height + 50 || y < -50) {
       // if node over screen limits - reset to a init position
@@ -45,10 +46,10 @@ class Node {
   }
 
   render() {
-    const { x, y } = this.location;
-    this.garden.ctx.beginPath();
-    this.garden.ctx.arc(x, y, this.getDiameter(), 0, 2 * Math.PI);
-    this.garden.ctx.fill();
+    const { x, y, garden: { ctx } } = this;
+    ctx.beginPath();
+    ctx.arc(x, y, this.getDiameter(), 0, 2 * Math.PI);
+    ctx.fill();
   }
 }
 
@@ -70,7 +71,7 @@ function NodeGarden({ context: ctx, width, height }) {
       const nodeA = nodes[i];
       for (let j = i + 1; j < nodes.length; j++) {
         const nodeB = nodes[j];
-        const squaredDistance = nodeA.location.squaredDist(nodeB.location);
+        const squaredDistance = nodeA.squaredDist(nodeB);
 
         // calculate gravity force
         const force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
@@ -92,15 +93,15 @@ function NodeGarden({ context: ctx, width, height }) {
         }
 
         // calculate gravity direction
-        const direction = Vector.sub(nodeB.location, nodeA.location);
+        const direction = Vector.sub(nodeB, nodeA);
         nodeA.addForce(force, direction);
         nodeB.addForce(-force, direction);
 
         // draw gravity lines
         ctx.beginPath();
         ctx.strokeStyle = 'rgba(63,63,63,' + (opacity < 1 ? opacity : 1) + ')';
-        ctx.moveTo(nodeA.location.x, nodeA.location.y);
-        ctx.lineTo(nodeB.location.x, nodeB.location.y);
+        ctx.moveTo(nodeA.x, nodeA.y);
+        ctx.lineTo(nodeB.x, nodeB.y);
         ctx.stroke();
       }
     }
