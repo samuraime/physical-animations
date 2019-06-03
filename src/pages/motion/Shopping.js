@@ -44,15 +44,9 @@ function jumpToCart(element, source, target) {
     v.add(a);
     const halfA = Vector.div(a, 2);
     p.add(Vector.sub(v, halfA));
-
-    // p.add(v);
-    // v.add(a);
   }
 
   const animate = () => {
-    // if (p.x > target.x && p.y > target.y) {
-    //   return;
-    // }
     if (p.x > target.x + 1) {
       return;
     }

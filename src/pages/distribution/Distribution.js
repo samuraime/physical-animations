@@ -27,19 +27,19 @@ const Rect1 = getComponent((width, height) => {
 });
 
 // TODO: 换个简单原理的, 要么去掉
-const Rect2 = getComponent((width, height) => {
-  const getRandom = (axis) => {
-    const half = axis / 2;
-    const rand = random(-1, 1);
-    const radius = Math.sin((rand ** 2) * Math.PI / 2) * Math.sign(rand);
+// const Rect2 = getComponent((width, height) => {
+//   const getRandom = (axis) => {
+//     const half = axis / 2;
+//     const rand = random(-1, 1);
+//     const radius = Math.sin((rand ** 2) * Math.PI / 2) * Math.sign(rand);
 
-    return radius * half + half;
-  };
+//     return radius * half + half;
+//   };
 
-  const x = getRandom(width);
-  const y = getRandom(height);
-  return { x, y };
-});
+//   const x = getRandom(width);
+//   const y = getRandom(height);
+//   return { x, y };
+// });
 
 const Circle1 = getComponent((width, height) => {
   const radius = Math.sqrt(Math.random()) * width / 2;
@@ -64,9 +64,6 @@ function Distribution() {
     <div className={s.root}>
       <div className={s.row}>
         <Rect1 className={s.item} />
-        <Rect2 className={s.item} />
-      </div>
-      <div className={s.row}>
         <Circle1 className={s.item} />
         <Circle2 className={s.item} />
       </div>
