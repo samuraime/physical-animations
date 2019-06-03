@@ -24,58 +24,37 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ### 缓动与弹动 Easing and Springing
 
-  比例运动  
-    - 设置目标点  
-    - 确定物体与目标点的位置  
-    - 运动和距离成正比 - 距离越远, 运动程度越大
-
   - 缓动
-    
-    滚动条平滑移动```window.scrollTo({ top, behavior: 'smooth' });```
-
   - 弹动
 
-    造个弹簧吧
-
-### 跟随
+### 跟随 (TODO)
 
   - 鼠标跟随效果, 小尾巴
   - 波形文字
 
-### 二维运动
-
-  平抛运动
+### 二维运动 (这里只看平抛运动)
 
   - 商品跳进购物车
-  - Super Mario
   - 抽奖
 
 ### 碰撞 and 动量守恒
   
-  - 匀速弹球
-  - 桌球碰撞
+  - 两个球碰撞
 
 ### 引力 Gravitation
   
   - 捕获天体
 
-### 随机游走 Random (with Vector)
+### 随机游走 Random Walk
   
-  - 噪声
-
-    噪声随机游走
-
+  - 噪声随机游走
   - 布朗运动
-
-    布朗运动
 
 ### 随机分布 Random Distribution
 
   - 方形分布
-
   - 圆形分布
-
-    实例: 压筹码
+  - 实例: 压筹码
 
 ### 粒子 Particles
   
@@ -83,6 +62,7 @@ This project was bootstrapped with [Create React App](./CREATE_REACT_APP.md)
 
 ## Tips and Tricks
 
+  - 简化模型
   - squaredDistance
   - 步长的选择
 
