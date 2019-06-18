@@ -1,5 +1,5 @@
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 
 class Planet extends Vector {
   constructor({ x, y, m, v, r }) {
@@ -42,7 +42,7 @@ function Gravity({ context: ctx, width, height }) {
     earth.add(earth.v);
     // F = G * m1 * m2 / r ** 2
     const G = 100;
-    const r2 = Vector.squaredDist(sun, earth);
+    const r2 = Vector.distSq(sun, earth);
     const gravityMag = G * earth.m * sun.m / r2;
     const gravity = Vector.sub(sun, earth).setMag(gravityMag);
     const a = gravity.div(earth.m);

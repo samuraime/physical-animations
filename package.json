@@ -10,7 +10,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "simplex-noise": "^2.4.0"
+    "simplex-noise": "^2.4.0",
+    "vector-es": "^0.2.0"
   },
   "scripts": {
     "predeploy": "npm run build",

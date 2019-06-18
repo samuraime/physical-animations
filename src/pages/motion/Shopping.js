@@ -1,5 +1,5 @@
 import React, { memo, useRef } from 'react';
-import Vector from '../../utils/Vector';
+import Vector from 'vector-es';
 import s from './Shopping.module.css';
 
 function Placeholder() {

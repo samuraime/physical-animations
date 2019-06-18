@@ -1,5 +1,5 @@
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 import { random } from '../../utils';
 
 class Node extends Vector {
@@ -71,10 +71,10 @@ function NodeGarden({ context: ctx, width, height }) {
       const nodeA = nodes[i];
       for (let j = i + 1; j < nodes.length; j++) {
         const nodeB = nodes[j];
-        const squaredDistance = nodeA.squaredDist(nodeB);
+        const distanceSquared = nodeA.distSq(nodeB);
 
         // calculate gravity force
-        const force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
+        const force = 3 * (nodeA.m * nodeB.m) / distanceSquared;
         const opacity = force * 100;
 
         if (opacity < 0.025) {
@@ -82,7 +82,7 @@ function NodeGarden({ context: ctx, width, height }) {
         }
 
         // 碰撞检测
-        if (squaredDistance <= (nodeA.m / 2 + nodeB.m / 2) * (nodeA.m / 2 + nodeB.m / 2)) {
+        if (distanceSquared <= (nodeA.m / 2 + nodeB.m / 2) * (nodeA.m / 2 + nodeB.m / 2)) {
           // collision: remove smaller or equal - never both of them
           if (nodeA.m <= nodeB.m) {
             nodeA.collideTo(nodeB);

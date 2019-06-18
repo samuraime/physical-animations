@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Vector from 'vector-es';
 import { random } from '../../utils';
-import Vector from '../../utils/Vector';
 import Chip from './Chip';
 import s from './BetTable.module.css';
 
 function getRandomPoint(maxRadius) {
   const radius = Math.random() ** 2 * maxRadius;
   const theta = random(0, 2 * Math.PI);
-  const point = Vector.polar(radius, theta);
+  const point = Vector.fromAngle(theta, radius);
   const x = point.x + maxRadius;
   const y = point.y + maxRadius;
 
@@ -23,14 +23,21 @@ function BetTable() {
     if (chips.length > 200) {
       return;
     }
-    requestAnimationFrame(() => {
+
+    const update = () => {
       const { x, y } = getRandomPoint(tableSize / 2);
       setChips([...chips, {
         x,
         y,
         type: Math.ceil(random(0, 5)),
       }]);
-    });
+    };
+
+    const id = requestAnimationFrame(update);
+
+    return () => {
+      cancelAnimationFrame(id);
+    };
   });
 
   return (

@@ -1,6 +1,6 @@
 import SimplexNoise from 'simplex-noise';
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 import { noiseMap } from '../../utils';
 
 function NoiseMotion({ context: ctx, width, height }) {

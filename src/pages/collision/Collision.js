@@ -1,5 +1,5 @@
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 
 class Ball extends Vector {
   constructor({ context, x, y, m, v, radius }) {

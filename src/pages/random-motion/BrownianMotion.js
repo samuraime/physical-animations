@@ -1,5 +1,5 @@
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 import { random } from '../../utils';
 
 function BrownianMotion({ context: ctx, width, height }) {

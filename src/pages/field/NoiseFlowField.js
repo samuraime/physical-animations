@@ -1,5 +1,5 @@
+import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
-import Vector from '../../utils/Vector';
 import noise from '../../utils/perlin';
 import { noiseMap } from '../../utils';
 
@@ -111,7 +111,7 @@ function NoiseFlowField({ context: ctx, width, height }) {
       this.flowField.display();
       ctx.save();
       ctx.beginPath();
-      const theta = this.velocity.heading();
+      const theta = this.velocity.dir();
       ctx.translate(this.location.x, this.location.y);
       ctx.rotate(theta + Math.PI / 2);
       ctx.moveTo(0, 0);
