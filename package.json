@@ -11,14 +11,14 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "simplex-noise": "^2.4.0",
-    "vector-es": "^0.2.0"
+    "vector-es": "^0.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!vector-es)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,5 +40,8 @@
   "main": "index.js",
   "repository": "git@github.com:samuraime/physical-animations.git",
   "author": "Minhui.Zhao <minhui.zhao@thoughtworks.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest-canvas-mock": "^2.2.0"
+  }
 }
