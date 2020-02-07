@@ -4,12 +4,12 @@
   "private": false,
   "homepage": "https://samuraime.github.io/physical-animations",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.2.0",
     "immutability-helper": "^3.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0",
+    "react-scripts": "3.3.1",
     "simplex-noise": "^2.4.0",
     "vector-es": "^0.3.0"
   },
