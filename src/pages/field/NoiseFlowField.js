@@ -1,70 +1,59 @@
+import React from 'react';
 import Vector from 'vector-es';
 import withCanvas from '../../components/withCanvas';
 import noise from '../../utils/perlin';
 import { noiseMap } from '../../utils';
+import s from './NoiseFlowField.module.css';
 
-function NoiseFlowField({ context: ctx, width, height }) {
-   noise.seed(Math.random());
+noise.seed(Math.random());
+const NOISE_PERIOD = 1 / 800;
 
-  class FlowField {
-    constructor(width, height, size) {
-      this.size = size;
-      this.rows = Math.ceil(height / size);
-      this.cols = Math.ceil(width / size);
-      this.run = this.run.bind(this);
-      this.fields = [];
-      this.time = 0;
-      this.period = 1 / 800;
-      this.timePeriod = 1 / 2;
-      this.update();
-    }
-    update() {
-      this.time += 0.01;
-      for (let i = 0; i < this.rows; i++) {
-        this.fields[i] = [];
-        for (let j = 0; j < this.cols; j++) {
-          // 只计算分块中心点的噪声作为可视化展示
-          // TODO: move this to another canvas
-          const n = noise.simplex2(
-            (this.size * j + this.size / 2) * this.period,
-            (this.size * i + this.size / 2) * this.period
-          );
-          this.fields[i][j] = noiseMap(n, 0, 2 * Math.PI);
-        }
+const FlowFieldCanvas = withCanvas(({ context: ctx, width, height }) => {
+  const size = 80;
+  const rows = Math.ceil(height / size);
+  const cols = Math.ceil(width / size);
+  const getFieldMatrix = () => {
+    const matrix = [];
+    for (let i = 0; i < rows; i++) {
+      matrix[i] = [];
+      for (let j = 0; j < cols; j++) {
+        // 只计算分块中心点的噪声作为可视化展示
+        const n = noise.simplex2(
+          (size * j + size / 2) * NOISE_PERIOD,
+          (size * i + size / 2) * NOISE_PERIOD
+        );
+        matrix[i][j] = noiseMap(n, 0, 2 * Math.PI);
       }
     }
-    // 查找location位置的所需速度
-    lookup(location) {
-      const n = noise.simplex2(location.x * this.period, location.y * this.period);
-      return noiseMap(n, 0, 2 * Math.PI);
-    }
-    display() {
-      ctx.clearRect(0, 0, width, height);
-      ctx.beginPath();
-      for (let i = 0; i < this.rows; i++) {
-        for (let j = 0; j < this.cols; j++) {
-          ctx.save();
-          ctx.fillStyle = '#eee';
-          ctx.translate(j * this.size + this.size / 2, i * this.size + this.size / 2);
-          ctx.rotate(this.fields[i][j]);
-          ctx.beginPath();
-          ctx.moveTo(this.size / 2 - this.size / 8, 0);
-          ctx.lineTo(-this.size / 2 + this.size / 8, this.size / 8);
-          ctx.lineTo(0, 0);
-          ctx.lineTo(-this.size / 2 + this.size / 8, -this.size / 8);
-          ctx.closePath();
-          ctx.fill();
-          ctx.restore();
-        }
-      }
-    }
-    run() {
-      this.update();
-      this.display();
-      requestAnimationFrame(this.run);
-    }
+    return matrix;
   }
 
+  const render = () => {
+    const matrix = getFieldMatrix();
+    ctx.fillStyle = '#eee';
+    ctx.beginPath();
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        ctx.save();
+        ctx.translate(j * size + size / 2, i * size + size / 2);
+        ctx.rotate(matrix[i][j]);
+        ctx.beginPath();
+        ctx.moveTo(size / 2 - size / 8, 0);
+        ctx.lineTo(-size / 2 + size / 8, size / 8);
+        ctx.lineTo(0, 0);
+        ctx.lineTo(-size / 2 + size / 8, -size / 8);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    ctx.fill();
+  };
+
+  render();
+});
+
+const VehicleCanvas = withCanvas(({ context: ctx, width, height }) => {
   class Vehicle {
     constructor(location = new Vector(), velocity = new Vector(), acceleration = new Vector()) {
       this.location = location;
@@ -72,7 +61,6 @@ function NoiseFlowField({ context: ctx, width, height }) {
       this.acceleration = acceleration;
       this.maxSpeed = 10;
       this.maxForce = 2;
-      this.flowField = new FlowField(width, height, 80);
       this.run = this.run.bind(this);
     }
     applyForce(force) {
@@ -98,9 +86,14 @@ function NoiseFlowField({ context: ctx, width, height }) {
         this.location.y = 0;
       }
     }
+    // 查找location位置的所需速度
+    getFieldVelocityDirection() {
+      const n = noise.simplex2(this.location.x * NOISE_PERIOD, this.location.y * NOISE_PERIOD);
+      return noiseMap(n, 0, 2 * Math.PI);
+    }
     follow() {
       const flowMaxSpeed = 10;
-      const theta = this.flowField.lookup(this.location);
+      const theta = this.getFieldVelocityDirection();
       const desired = new Vector(Math.cos(theta), Math.sin(theta)).mult(flowMaxSpeed);
       const steer = Vector.sub(desired, this.velocity);
       steer.limit(this.maxForce);
@@ -108,7 +101,6 @@ function NoiseFlowField({ context: ctx, width, height }) {
     }
     display(ctx) {
       ctx.clearRect(0, 0, width, height);
-      this.flowField.display();
       ctx.save();
       ctx.beginPath();
       const theta = this.velocity.dir();
@@ -133,6 +125,17 @@ function NoiseFlowField({ context: ctx, width, height }) {
   const location = new Vector(width / 2, height / 2);
   const vehicle = new Vehicle(location);
   vehicle.run();
+});
+
+// Separate background and foreground for performance
+// FlowFieldCanvas and VehicleCanvas share same noise period(NOISE_PERIOD)
+function NoiseFlowField() {
+  return (
+    <div className={s.root}>
+      <FlowFieldCanvas className={s.background} />
+      <VehicleCanvas className={s.foreground} />
+    </div>
+  );
 }
 
-export default withCanvas(NoiseFlowField);
+export default NoiseFlowField;
